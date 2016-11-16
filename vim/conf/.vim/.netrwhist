@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/zhaogang/.vim/bundle/majutsushi-tagbar-e872e67'
+let g:netrw_dirhist_2='/home/zhaogang/git/soc/lib/soc/operations/finalcheck/checker'
+let g:netrw_dirhist_3='/home/zhaogang/.vim'
