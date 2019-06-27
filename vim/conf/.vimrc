@@ -67,9 +67,9 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 if &term=="xterm"
-    set t_Co=8
-    set t_Sb=^[[4%dm
-    set t_Sf=^[[3%dm
+	set t_Co=8
+	set t_Sb=^[[4%dm
+	set t_Sf=^[[3%dm
 endif
 
 " The following are commented out as they cause vim to behave a lot
@@ -81,7 +81,7 @@ endif
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+"set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -95,7 +95,7 @@ set fileencodings=utf-8,gb2312,gbk,gb18030
 
 set termencoding=utf-8
 
-set fileformats=unix
+set fileformats=dos
 
 set encoding=prc
 
@@ -113,12 +113,12 @@ set autoindent
 "set smartindent 
 
 set tabstop=4 
-set expandtab
+"set expandtab
 set shiftwidth=4 
 
 set showmatch 
 
-set guioptions-=T 
+"set guioptions-=T 
 
 set vb t_vb= 
 
@@ -152,12 +152,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-autocmd vimenter * TagbarOpen
+"autocmd vimenter * TagbarOpen
 "autocmd tabenter * TagbarOpen
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:tagbar_compact = 1
 "autocmd vimenter * NERDTree
-autocmd VimEnter * 2 wincmd w
+"autocmd VimEnter * 2 wincmd w
 "autocmd TabLeave * tabp
 "autocmd VimEnter * TrinityToggleAll
 "autocmd TabEnter * TrinityToggleAll
@@ -187,6 +187,11 @@ function! s:CloseIfOnlyNerdTree()
     endif
 endfunction
 
+function! s:DeleteCurrentBuffer()
+	let currentBufferNo = bufnr("%")
+endfunction
+
+
 imap <C-h> <Left>
 imap <C-l> <Right>
 imap <C-j> <Down>
@@ -195,7 +200,7 @@ imap <C-k> <Up>
 map tl :Tlist<CR> 
 map tc :TlistClose<CR> 
 map ts :ts<CR> 
-map tt :TagbarToggle<CR>
+"map tt :TagbarToggle<CR>
 map nt :NERDTree<CR>
 map = :bn<CR>
 map - :bp<CR>
@@ -210,19 +215,29 @@ map <Leader>8 :8b<CR>
 map <Leader>9 :9b<CR>
 map <Leader>sh :set ft=sh<CR>
 map <Leader>a viwy:Ack <c-r>"
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 nmap <Leader><Space> <C-w><C-]><C-w>T
-nmap <Leader>t <C-t>
+nmap <Leader>t :LeaderfBufTag<CR>
+nmap <Leader>s :LeaderfTag<CR>
+
+nmap <Leader>x :call s:DeleteCurrentBuffer()
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 
+"Swap
+vnoremap <C-S-X> <ESC>`.``gvp``P
+
+" Fold with research result
+nnoremap zpr :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>:set foldmethod=manual<CR><CR>
+
 " Doxygen config
 let g:DoxygenToolkit_authorName="Zhao Gang"
-let g:DoxygenToolkit_authorTag="zhaogang05@baidu.com"
-let s:licenseTag = "Copyright(C) 2014 Baidu.com, Inc."
+let g:DoxygenToolkit_authorTag="donzhao@tencent.com"
+let s:licenseTag = "Copyright(C) 2018 Tencent.com, Inc."
 let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
 let g:DoxygenToolkit_licenseTag = s:licenseTag
 let g:DoxygenToolkit_briefTag_funcName="yes"
@@ -248,15 +263,16 @@ au Filetype javascript let g:indentLine_enabled=1
 "let g:indentLine_color_dark = 1
 
 " Default scheme
+let g:solarized_menu=0
+let g:solarized_termtrans=0
+"let g:solarized_termcolors = 256
 colorscheme solarized
-"let g:solarized_termtrans=0
-let g:solarized_termcolors = 256
 
 " highlight current line
-set cursorline 
-hi CursorLine cterm=bold 
-hi CursorColumn cterm=bold
-au Filetype python set cursorcolumn
+"set cursorline 
+"hi CursorLine cterm=bold 
+"hi CursorColumn cterm=bold
+"au Filetype python set cursorcolumn
 
 " set floder
 set foldlevelstart=99
@@ -277,10 +293,10 @@ let g:flake8_quickfix_location="botright"
 " ctags & cscope
 "set tags=/home/zhaogang/tags,./tags,./TAGS,tags,TAGS;set autochdir
 if has("cscope")
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
+    set cscopequickfix=c-,d-,i-,t-,e-
     set csto=0
     set cst
-    set csverb
+    set nocsverb
 endif
 
 set completeopt=menu
@@ -337,15 +353,16 @@ endfunction
 "nmap <leader>c :call UpdateCtags()<CR>
 
 "set showtabline=2
-nmap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>:belowright copen<CR>
 nmap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
 map <C-LeftMouse> :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-nmap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>:copen<CR>
-nmap <leader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:copen<CR>
-nmap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>:belowright copen<CR>
+nmap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>:belowright copen<CR>
+nmap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>:belowright copen<CR>
+nmap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>:belowright copen<CR>
+nmap <leader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:belowright copen<CR>
+nmap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>:belowright copen<CR>
+nmap <leader>q :ccl<CR>
 
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -396,8 +413,8 @@ let g:SuperTabDefaultCompletionType="context"
 
 "set completeopt=menu
 
-map  <F2>   <Plug>ShowFunc
-map!  <F2>   <Plug>ShowFunc
+"map  <F2>   <Plug>ShowFunc
+"map!  <F2>   <Plug>ShowFunc
 
 " AutoPair
 let g:AutoPairsMapCR = 0
@@ -413,68 +430,113 @@ au Filetype sh call HighlightLineOver100Chars()
 au Filetype java call HighlightLineOver100Chars()
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['pyflakes']
-let g:syntastic_check_on_wq = 1
-nnoremap <Leader>f :lnext<cr>
-nnoremap <Leader>b :lprevious<cr>
+"let g:syntastic_enable_highlighting=1
+"let g:syntastic_python_checkers=['pyflakes']
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_mode = 'passive'
+"nnoremap <Leader>f :lnext<cr>
+"nnoremap <Leader>b :lprevious<cr>
 
 " SrcExpl & Trinity
 " // The switch of the Source Explorer 
-nmap <F8> :SrcExplToggle<CR> 
+"nmap <F8> :SrcExplToggle<CR> 
 
 " // Set the height of Source Explorer window 
-let g:SrcExpl_winHeight = 8 
+"let g:SrcExpl_winHeight = 8 
 
 " // Set 100 ms for refreshing the Source Explorer 
-let g:SrcExpl_refreshTime = 10
+"let g:SrcExpl_refreshTime = 10
 
 " // Set "Enter" key to jump into the exact definition context 
-let g:SrcExpl_jumpKey = "<ENTER>" 
+"let g:SrcExpl_jumpKey = "<ENTER>" 
 
 " // Set "Space" key for back from the definition context 
-let g:SrcExpl_gobackKey = "<SPACE>" 
+"let g:SrcExpl_gobackKey = "<SPACE>" 
 
 " // In order to Avoid conflicts, the Source Explorer should know what plugins 
 " // are using buffers. And you need add their bufname into the list below 
 " // according to the command ":buffers!" 
-let g:SrcExpl_pluginList = [ 
-        \ "NERD_tree_1", 
-        \ "Source_Explorer",
-        \ "__Tagbar__",
-        \ "-MiniBufExplorer-"
-    \ ] 
+"let g:SrcExpl_pluginList = [ 
+        "\ "NERD_tree_1", 
+        "\ "Source_Explorer",
+        "\ "__Tagbar__",
+        "\ "-MiniBufExplorer-"
+"    \ ] 
 
 " // Enable/Disable the local definition searching, and note that this is not 
 " // guaranteed to work, the Source Explorer doesn't check the syntax for now. 
 " // It only searches for a match with the keyword according to command 'gd' 
-let g:SrcExpl_searchLocalDef = 1
+"let g:SrcExpl_searchLocalDef = 1
 
 " // Do not let the Source Explorer update the tags file when opening 
-let g:SrcExpl_isUpdateTags = 1 
+"let g:SrcExpl_isUpdateTags = 1 
 
 " // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
 " //  create/update a tags file 
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
+"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
 
 " // Set "<F12>" key for updating the tags file artificially 
-let g:SrcExpl_updateTagsKey = "<F12>"  
+"let g:SrcExpl_updateTagsKey = "<F12>"  
 
 " Open and close all the three plugins on the same time 
-nmap <F8>  :TrinityToggleAll<CR> 
+"nmap <F8>  :TrinityToggleAll<CR> 
 
 " Open and close the Source Explorer separately 
-nmap <F9>  :TrinityToggleSourceExplorer<CR> 
+"nmap <F9>  :TrinityToggleSourceExplorer<CR> 
 
 " Open and close the Taglist separately 
-nmap <F10> :TrinityToggleTagList<CR> 
+"nmap <F10> :TrinityToggleTagList<CR> 
 
 " Open and close the NERD Tree separately 
-nmap <F11> :TrinityToggleNERDTree<CR>
+"nmap <F11> :TrinityToggleNERDTree<CR>
+
+" for json beautify
+noremap <buffer> <leader>j :!python -m json.tool<cr>
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')"
+
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
+"Plug 'mhinz/vim-signify'
+"Plug 'ludovicchabant/vim-gutentags'
+
+" Initialize plugin system
+call plug#end()
+
+" Signify 默认关闭,提升文件打开速度
+"let g:signify_disable_by_default = 0
+
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" gutentags 更新 ctags & cscope
+let g:gutentags_modules = ['ctags', 'cscope']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = 'tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+"let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+"let g:gutentags_ctags_extra_args = ['--fields=+iaS', '--extra=+q']
+"let g:gutentags_ctags_extra_args += ['--c++-kinds=+p']
+"let g:gutentags_ctags_extra_args += ['--c-kinds=+p']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+" LeaderF 搜索整个工程目录
+let g:Lf_WorkingDirectoryMode = 'a'

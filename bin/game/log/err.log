@@ -1,0 +1,59 @@
+BLB_monitor  Wed, 21 Sep 2016 16:15:04 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:05 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:07 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:09 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:11 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:13 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:15 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:17 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:19 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:21 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:23 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:25 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:27 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:29 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:30 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:32 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:34 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Wed, 21 Sep 2016 16:15:36 ERROR    EXCEPTION: local variable 'last_drop' referenced before assignment
+BLB_monitor  Thu, 29 Sep 2016 08:05:55 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Fri, 30 Sep 2016 17:02:15 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Fri, 30 Sep 2016 17:02:16 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Fri, 07 Oct 2016 12:31:25 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Sat, 08 Oct 2016 15:20:52 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Sun, 09 Oct 2016 15:47:54 ERROR    EXCEPTION: local variable 'to' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:47:55 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:49:35 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:49:37 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:55:49 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:55:59 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:55:59 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:56:20 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:57:51 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:59:01 ERROR    EXCEPTION: local variable 'to' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:59:01 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:59:41 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:59:42 ERROR    EXCEPTION: local variable 'to' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 15:59:42 ERROR    EXCEPTION: local variable 'to' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 16:02:12 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 16:02:12 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Sun, 09 Oct 2016 16:02:43 ERROR    EXCEPTION: local variable 'drop' referenced before assignment
+BLB_monitor  Tue, 18 Oct 2016 11:54:45 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 11:55:06 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 11:55:47 ERROR    EXCEPTION: expected string or buffer
+BLB_monitor  Tue, 18 Oct 2016 11:56:31 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 12:12:02 ERROR    EXCEPTION: expected string or buffer
+BLB_monitor  Tue, 18 Oct 2016 12:13:05 ERROR    EXCEPTION: expected string or buffer
+BLB_monitor  Tue, 18 Oct 2016 12:13:31 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 12:13:52 ERROR    EXCEPTION: expected string or buffer
+BLB_monitor  Tue, 18 Oct 2016 12:14:07 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 12:14:18 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 12:14:46 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 12:15:17 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:07:58 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:22:17 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:22:35 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:22:50 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:23:37 ERROR    EXCEPTION: expected string or buffer
+BLB_monitor  Tue, 18 Oct 2016 14:23:48 ERROR    EXCEPTION: [Errno 22] Invalid argument
+BLB_monitor  Tue, 18 Oct 2016 14:24:21 ERROR    EXCEPTION: [Errno 22] Invalid argument

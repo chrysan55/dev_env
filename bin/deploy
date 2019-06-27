@@ -1,0 +1,7 @@
+#!/bin/sh
+
+TARGET=$1
+URL=bcedeploy.bce.baidu.com/api/bcedeploy/deploy
+source ./deploy-${TARGET}.conf
+
+curl "${URL}?module=${MODULE}&envName=${ENV}&productLine=${PRODUCT_LINE}&binv=${BIN}&confv=${CONF}&oplv=${OP_LIST}&archerToken=${TOKEN}"

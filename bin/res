@@ -1,0 +1,20 @@
+
+CLUSTER onlineA
+4537 vrouters
+3726 VMs
+
+CLUSTER onlineB
+12 vrouters
+1934 VMs
+
+CLUSTER onlineC
+7449 vrouters
+3147 VMs
+
+CLUSTER gzns
+11305 vrouters
+5102 VMs
+
+TOTAL: 
+23303 vrouters
+13909 VMs

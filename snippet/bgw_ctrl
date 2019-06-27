@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import requests
+import sys
+
+if len(sys.argv) != 4:
+    print "Usage: ./%s enable/disable BGW_IP BGW_HOSTNAME" % sys.argv[0]
+    exit()
+bgw_ip = sys.argv[2]
+hostname = sys.argv[3]
+if sys.argv[1] == 'enable':
+    print requests.put("http://10.63.17.49:8899/bgw/node?uuid=bgw_ctrl", json=[{"node_ip":bgw_ip, "version": "x86", "status": "normal", "hostname": hostname}]).text
+if sys.argv[1] == 'disable':
+    print requests.put("http://10.63.17.49:8899/bgw/node?uuid=bgw_ctrl", json=[{"node_ip":bgw_ip, "version": "x86", "status": "error", "hostname": hostname}]).text
